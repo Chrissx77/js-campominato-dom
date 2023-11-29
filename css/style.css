@@ -80,8 +80,13 @@ main {
 }
 
 .clicked{
-    background-color: green;
+    background-color: cadetblue;
 }
+
+.clicked.gameover{
+    background-color: red;
+}
+
 
 /* FOOTER STYLE */
 footer{

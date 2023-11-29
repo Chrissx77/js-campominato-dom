@@ -32,8 +32,10 @@ function () {
                     while (i < arrayBomb.length && flag === false) {
                         if (arrayBomb.includes(indexSquare)) {
                             flag = true;
+                            this.classList.add("gameover");
+                            // grid.innerHTML = "";
                             alert("Sei Esploso");
-                            grid.innerHTML = "";
+                            btn_play.innerHTML = "Riprova";
                         }
                         i++;
                     }
@@ -64,7 +66,7 @@ function createMyElement(tagName, className) {
 }
 
 function genNumRand(min, max) {
-    let numRand = Math.floor(Math.random() * (max - min) - 1) + min;
+    let numRand = Math.floor(Math.random() * max - min) + min;
     return numRand;
 }
 
