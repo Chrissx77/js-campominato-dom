@@ -12,7 +12,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .logo {
@@ -38,6 +37,7 @@ main {
     background-color: #7fffd4;
     padding: 70px 0;
 }
+
 .grid{
     width: 600px;
     height: 600px;
@@ -48,6 +48,29 @@ main {
 
 .square{
     width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.squareNormal{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.squareHard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
     border: 1px solid black;
     display: flex;
     align-items: center;
