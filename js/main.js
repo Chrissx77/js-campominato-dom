@@ -1,5 +1,8 @@
 const grid = document.querySelector(".grid");
 const btn_play = document.getElementById("btn-play");
+const bombNumber = 16;
+let arrayBomb = genArrayMinMaxRand(1, 100, bombNumber);
+console.log(arrayBomb);
 let squareElement;
 btn_play.addEventListener("click",
 function () {
@@ -16,12 +19,22 @@ function () {
             else if(lunghezza(selectDiff) === 49){
                 squareElement = createMyElement("div","squareHard");
             }
-
-            squareElement.append(i);
+            let indexSquare = i;
+            squareElement.append(indexSquare);
             squareElement.addEventListener("click",
                 function () {
-                    console.log("Hai cliccato la cella numero: " + i);
                     this.classList.add("clicked");
+                    console.log("Il valore di square è: " + indexSquare);
+                    let flag = false;
+                    let i = 0;
+                    while(i < arrayBomb.length && flag === false){
+                        if(arrayBomb.includes(indexSquare)){
+                            flag = true;
+                            alert("Sei Esploso");
+                        }
+                        i++;
+                    }
+                    
                 }
             )
             grid.append(squareElement);
@@ -46,6 +59,24 @@ function createMyElement(tagName,className) {
     const currentElement = document.createElement(tagName);
     currentElement.classList.add(className);
     return currentElement;
+}
+
+function genNumRand(min, max){
+    let numRand = Math.floor(Math.random() * (max - min) - 1 ) + min;
+    return numRand;
+}
+
+function genArrayMinMaxRand(minNum, maxNum, lengthArr){
+    let array = [];
+    let i = 0;
+    while(array.length < lengthArr){
+        let numRand = genNumRand(minNum, maxNum);
+        if(!array.includes(numRand)){
+            array.push(numRand)
+        }
+        i++;
+    }
+    return array;
 }
 
 
